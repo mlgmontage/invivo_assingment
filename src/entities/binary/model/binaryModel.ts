@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "app/store";
+import type { RootState } from "app/store";
 
 export type Node = {
   data: number;
@@ -8,26 +8,18 @@ export type Node = {
 } | null;
 
 const initialState: Node = {
-  data: 10,
-  left: {
-    data: 3,
-    left: null,
-    right: null,
-  },
-  right: {
-    data: 11,
-    left: null,
-    right: null,
-  },
+  data: 0,
+  left: null,
+  right: null,
 };
 
+// WARNING: Tree is not balanced
 const binaryModel = createSlice({
   name: "binary",
   initialState,
   reducers: {
     insert: (state, { payload }: PayloadAction<Node>) => {
       if (!payload) return;
-
       if (state === null) {
         state = payload;
         return;

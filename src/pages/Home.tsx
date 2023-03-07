@@ -23,6 +23,9 @@ const Home = () => {
 
   return (
     <div>
+      <h1 style={{ textAlign: "center" }}>
+        Press "space" to insert random number.
+      </h1>
       <TreeNode node={tree} />
     </div>
   );

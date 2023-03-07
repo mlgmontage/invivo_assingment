@@ -9,7 +9,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({ node }) => {
     <div style={{ textAlign: "center" }}>
       {node ? (
         <div>
-          <h4>{node.data}</h4>
+          <h3>{node.data}</h3>
           <div
             style={{
               display: "flex",
