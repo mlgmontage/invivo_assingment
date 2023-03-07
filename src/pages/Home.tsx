@@ -1,4 +1,5 @@
 import { treeSelector, insert } from "entities/binary";
+import TreeNode from "entities/binary/ui/TreeNode";
 import { KeyboardEvent, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { generateNumber } from "shared/functions";
@@ -20,7 +21,11 @@ const Home = () => {
     return () => document.removeEventListener("keypress", press);
   }, []);
 
-  return <div>{}</div>;
+  return (
+    <div>
+      <TreeNode node={tree} />
+    </div>
+  );
 };
 
 export default Home;
