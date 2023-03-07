@@ -15,7 +15,7 @@ const initialState: Node = {
     right: null,
   },
   right: {
-    data: 8,
+    data: 11,
     left: null,
     right: null,
   },
@@ -26,7 +26,30 @@ const binaryModel = createSlice({
   initialState,
   reducers: {
     insert: (state, { payload }: PayloadAction<Node>) => {
-      // TODO: implement this function
+      if (!payload) return;
+
+      if (state === null) {
+        state = payload;
+        return;
+      }
+
+      let current = state;
+      while (current) {
+        // No duplicates
+        if (payload.data === current.data) return;
+
+        if (payload.data < current.data) {
+          if (current.left === null) {
+            current.left = payload;
+          }
+          current = current.left;
+        } else {
+          if (current.right === null) {
+            current.right = payload;
+          }
+          current = current.right;
+        }
+      }
     },
   },
 });
