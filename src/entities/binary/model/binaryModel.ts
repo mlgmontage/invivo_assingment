@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "app/store";
 
 export type Node = {
   data: number;
@@ -6,7 +7,19 @@ export type Node = {
   right: Node;
 } | null;
 
-const initialState: Node = null;
+const initialState: Node = {
+  data: 10,
+  left: {
+    data: 3,
+    left: null,
+    right: null,
+  },
+  right: {
+    data: 8,
+    left: null,
+    right: null,
+  },
+};
 
 const binaryModel = createSlice({
   name: "binary",
@@ -17,6 +30,8 @@ const binaryModel = createSlice({
     },
   },
 });
+
+export const treeSelector = (state: RootState) => state.binary;
 
 export const binaryReducer = binaryModel.reducer;
 export const { insert } = binaryModel.actions;
