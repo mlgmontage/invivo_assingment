@@ -1,7 +1,7 @@
 const Home = () => {
   return (
     <div>
-      <h1>Hello, world</h1>
+      <h1>Invivo binary tree</h1>
     </div>
   );
 };
