@@ -41,11 +41,13 @@ const binaryModel = createSlice({
         if (payload.data < current.data) {
           if (current.left === null) {
             current.left = payload;
+            return;
           }
           current = current.left;
         } else {
           if (current.right === null) {
             current.right = payload;
+            return;
           }
           current = current.right;
         }
